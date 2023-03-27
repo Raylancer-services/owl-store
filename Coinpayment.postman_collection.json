@@ -1,0 +1,76 @@
+{
+  "info": {
+    "_postman_id": "0b8cf10f-8713-4654-a1f7-5b7771af1ea7",
+    "name": "Coinpayment",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "13623630"
+  },
+  "item": [
+    {
+      "name": "Account Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/api/order/acc-info",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "order", "acc-info"]
+        },
+        "description": "Get Admin account information."
+      },
+      "response": []
+    },
+    {
+      "name": "Create Tx",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n \"cur1\":\"BTC\",\r\n \"cur2\":\"BTC\",\r\n \"amount\":\"1.2\",\r\n \"buyers_email\":\"graphicspapa@gmail.com\",\r\n \"buyers_name\":\"raylancer\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/order/create-tx",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "order", "create-tx"]
+        },
+        "description": "Create a new transaction"
+      },
+      "response": []
+    },
+    {
+      "name": "Tx info",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"txID\":\"CPGL0BECKUHUUMRUHCG26OOPXE\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5000/api/order/tx-info",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "order", "tx-info"]
+        },
+        "description": "Get Tx Info"
+      },
+      "response": []
+    }
+  ]
+}

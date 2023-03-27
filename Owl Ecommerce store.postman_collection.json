@@ -1,0 +1,1640 @@
+{
+	"info": {
+		"_postman_id": "12884d1e-199a-46d9-8458-18ae16f4865b",
+		"name": "Owl Ecommerce store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13623630"
+	},
+	"item": [
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNlM2EzMDYzM2M0Nzk1Mjk0YWY4OTQwIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3NTkyMDk4NiwiZXhwIjoxNjc1OTYwNTg2fQ.GHB2wODB4gwx7U3cqKKSarEMp1Hksb7a8G6O_IvaYno",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"itemId\": {\r\n                \"address\": {\r\n                    \"street\": \"b-4\",\r\n                    \"country\": \"US\",\r\n                    \"state\": \"CA\",\r\n                    \"city\": \"inverness\",\r\n                    \"zip\": \"34470\",\r\n                    \"phoneNo\": 9087654651\r\n                },\r\n                \"_id\": \"638888509c545c81d70a73e5\",\r\n                \"cardNumber\": \"1111444433339999\",\r\n                \"expiryDate\": \"2025-12-02T08:00:00.000Z\",\r\n                \"cvv\": \"389\",\r\n                \"socialSecurityNumber\": \"987654321\",\r\n                \"drivingLicenceNumber\": \"87654321\",\r\n                \"level\": \"classic\",\r\n                \"class\": \"debit\",\r\n                \"extraField\": [],\r\n                \"price\": \"645\",\r\n                \"bankName\": \"...test bank\",\r\n                \"type\": \"visa\",\r\n                \"otherDetails\": \"...test\",\r\n                \"createdBy\": \"63888125b0128f4bbef3ccaf\",\r\n                \"createdAt\": \"2022-12-01T10:56:16.784Z\",\r\n                \"updatedAt\": \"2022-12-01T10:56:16.784Z\",\r\n                \"__v\": 0\r\n            }\r\n        }\r\n    ],\r\n    \"payWith\":\"BTC\",\r\n    \"totalPrice\":\"645\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9uQHRlc3QuY29tIiwiaWQiOiI2M2ZjNjE2ZmJjMWQ5MTc3MWQ1N2NlMGYiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjc4NzcwMjA1LCJleHAiOjE2Nzg4MDk4MDV9.hfO1G6qPSA1a_EWCfl6mEH4hGgc74cJhEVTQZZbM8fY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/order/user-orders",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"order",
+								"user-orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get seller Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Rfc2VsbGVyQGV4YW1wbGUuY29tIiwiaWQiOiI2M2FiZDRhMjhmZDRkNjE4ZjExOTFlZTkiLCJyb2xlIjoiUk9MRV9TRUxMRVIiLCJpYXQiOjE2NzMyNjgwOTgsImV4cCI6MTY3MzMwNzY5OH0.1vsPEGuwIUK9B28hJcapGCZvI3ZLRboRFWA0xV_q9DE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/order/seller-orders?seller=63abd4a28fd4d618f1191ee9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"order",
+								"seller-orders"
+							],
+							"query": [
+								{
+									"key": "seller",
+									"value": "63abd4a28fd4d618f1191ee9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refund user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNlM2EzMDYzM2M0Nzk1Mjk0YWY4OTQwIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3NjI4MjQzOSwiZXhwIjoxNjc2MzIyMDM5fQ.CxPWaTatyvh6gzyHsr_YNrnguKhpmyVc1cQqFx_1Y-E",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"OrderId\":\"63ea159d105833a55d68d19b\",\r\n    \"amount\":\"10\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/order/refund",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"order",
+								"refund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update order refund status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNlM2EzMDYzM2M0Nzk1Mjk0YWY4OTQwIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3NjM1OTEwNiwiZXhwIjoxNjc2Mzk4NzA2fQ.cHF5ECpE6WRr5Sw1X6LpWQeEMbJVIqfm2MSJvET-70A",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"63eb21b3e16fcabc4e7ee561\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/order/update-order-refund-status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"order",
+								"update-order-refund-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update card validation status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"640f150c5e1143573f8cacae\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlLocal}}api/order/update-card-validation-status",
+							"host": [
+								"{{baseUrlLocal}}api"
+							],
+							"path": [
+								"order",
+								"update-card-validation-status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\":\"test_seller\",\r\n  \"email_id\":\"test_seller@example.com\",\r\n  \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login user/seller/admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email_id\":\"demon@test.com\",\r\n  \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/auth/login",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register seller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\":\"test_seller\",\r\n  \"email_id\":\"test_seller@example.com\",\r\n  \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/auth/registerSeller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"registerSeller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test_admin\",\r\n    \"email_id\": \"test_admin@example.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/register-admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"register-admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/card",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"card"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get sold cards",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Rfc2VsbGVyQGV4YW1wbGUuY29tIiwiaWQiOiI2M2UyMjMwYzJjNTJiNGJmMWM0NGEyNmQiLCJyb2xlIjoiUk9MRV9TRUxMRVIiLCJpYXQiOjE2NzYzNjcyOTgsImV4cCI6MTY3NjQwNjg5OH0.TV9W8JUb_C6u0Njanr5BECgL9fPcTRrDArkjz8aMcYU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/card/sold_seller_prod",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"card",
+								"sold_seller_prod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Card Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://lookup.binlist.net/414728",
+							"protocol": "https",
+							"host": [
+								"lookup",
+								"binlist",
+								"net"
+							],
+							"path": [
+								"414728"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check card validation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9uQHRlc3QuY29tIiwiaWQiOiI2M2ZjNjE2ZmJjMWQ5MTc3MWQ1N2NlMGYiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjc4NzgxMzI1LCJleHAiOjE2Nzg4MjA5MjV9._xdrHWvABhCox_BwuMcqchw0StLzOZIMvJKDbBhzkN8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"encodedString\":\"NDE0NzIwMjUwOTAzOTE0M3wwOXwyNnw2OTM=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/card/check-validation",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"card",
+								"check-validation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seller cards",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InNlbGxlckB0ZXN0LmNvbSIsImlkIjoiNjNmZGRiYzJiYzFkOTE3NzFkNTdlMWFkIiwicm9sZSI6IlJPTEVfU0VMTEVSIiwiaWF0IjoxNjc4OTY5MzQzLCJleHAiOjE2NzkwMDg5NDN9.N9EgicIJ8E86Hf7seKUI7wQ8_y85WbYexZYrQn3f3Eo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/card/seller_prod",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"card",
+								"seller_prod"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/user-by-id/63a2cef009b550ff7788643c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"user-by-id",
+								"63a2cef009b550ff7788643c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Create cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\":\"637486ba7edf2b5deb9f71fd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/cart",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GEt user cart",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNhYWYwMjJjZGMwODhiYjkyMGYxOTI2Iiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3MjIwNzk0NCwiZXhwIjoxNjcyMjQ3NTQ0fQ.xGxRN9ubtO5aMR8kSXTiBXURTpSbbuNaY5V5sw_zuko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/user/cart",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove item from cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"itemId\":\"637486ba7edf2b5deb9f71fc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/user/cart/delete",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"cart",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Billings",
+			"item": [
+				{
+					"name": "Create Deposit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNhYmQ0OTk4ZmQ0ZDYxOGYxMTkxZWUzIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3MjI5OTU0MywiZXhwIjoxNjcyMzM5MTQzfQ.wyzWyZNRTQQdTG4ohhxQVQCOyLq_POphxa9tRSINI1o",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"2\",\r\n    \"cur2\":\"LTC\",\r\n    \"buyers_email\":\"test_user@example.com\",\r\n    \"buyers_name\":\"test_user\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/billing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"billing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user billing list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNhMmNlZjAwOWI1NTBmZjc3ODg2NDNjIiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3MTY5ODk3OSwiZXhwIjoxNjcxNzM4NTc5fQ.UMb_V_SlSx_kuA2uBT12PeH9ynogdYXjXoq_8YYcqLk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/billing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"billing"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tx info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"txID\":\"CPGL3BICNJMOLBENZSHF7EX5MU\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/billing/tx-info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"billing",
+								"tx-info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tx multi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"txIDs\":[\r\n        \"CPGL06UJLMIYLVPKIJXK0SYMP2\",\r\n        \"CPGL26EA3BXGWSNYCIM5HTHY4G\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/billing/tx-info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"billing",
+								"tx-info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Approve seller",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\":\"63fddbc2bc1d91771d57e1ad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/approve-seller",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"approve-seller"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit money(After billing)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"5\",\r\n    \"userId\":\"63ce6e424fb6c6cd10ec7993\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/admin/deposit-money",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"admin",
+								"deposit-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Billing",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"billingId\":\"63a2ec8009bf00a920a12ec9\",\r\n    \"paymentApproved\":\"approved\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/billing/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"billing",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deduct amount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"5\",\r\n    \"userId\":\"63abd4998fd4d618f1191ee3\",\r\n    \"orderId\":\"63bbccb4d7c3da328f394c85\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/deduct-money",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"deduct-money"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all billings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/billings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"billings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/admin/delete-user/63a2d645a806d0e8f5abedf5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"delete-user",
+								"63a2d645a806d0e8f5abedf5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\":\"demongod\",\r\n  \"email_id\":\"demongod@example.com\",\r\n  \"password\":\"123456\",\r\n  \"role\":\"ROLE_ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/admin/add-user",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"add-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update order status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"orderId\":\"63ac06f03849e6c7297e5363\",\r\n    \"status\":\"Completed\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/update-order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"update-order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Block user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userID\":\"63e221a62c52b4bf1c44a263\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/admin/block-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"admin",
+								"block-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deposit money to user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"500\",\r\n    \"recipientId\":\"63fddbc2bc1d91771d57e1ad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/admin/deposit-money-user",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"admin",
+								"deposit-money-user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "News",
+			"item": [
+				{
+					"name": "create news",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Sakura\",\r\n    \"content\":\"Now you can purchase our Sakura jp\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/news",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get news",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/news",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete news",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/news/63bd0c2b3b6d97d1030daf69",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"news",
+								"63bd0c2b3b6d97d1030daf69"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "rules",
+			"item": [
+				{
+					"name": "create rules",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"rules ✔️\",\r\n    \"content\":\"It is a long established fact that a reader will\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/rules",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get rules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/rules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/rules/63fc4eb179dbac7ecbd30c30",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"rules",
+								"63fc4eb179dbac7ecbd30c30"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tickets",
+			"item": [
+				{
+					"name": "cerate ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RfdXNlckBleGFtcGxlLmNvbSIsImlkIjoiNjNhYWYwMjJjZGMwODhiYjkyMGYxOTI2Iiwicm9sZSI6IlJPTEVfVVNFUiIsImlhdCI6MTY3MzMzNDIyOSwiZXhwIjoxNjczMzczODI5fQ.F7on0uW2NWgpQ-NPEZgSpwouIoVlFXoA9DvqfXA5U7U",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"title\":\"test ticket\",\r\n    \"content\":\"test content\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/ticket",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all tickets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/ticket",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"ticket"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user tickets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9uQHRlc3QuY29tIiwiaWQiOiI2M2ZjNjE2ZmJjMWQ5MTc3MWQ1N2NlMGYiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjc3NDkyNTc1LCJleHAiOjE2Nzc1MzIxNzV9.DMnvBZ5qPVVD_-3Wob9ngHZe0dTwM1NiIkvI_AYEUr4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/ticket/user-tickets",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"ticket",
+								"user-tickets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create reply",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketId\":\"63bd686d9816d6016cb91094\",\r\n    \"content\":\"using Lorem Ipsum is that it has a more-or-less Lorem Ipsum is that it has a more-or-less\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/answer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single answer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/answer/63fc80b5bc1d91771d57d2f5",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"answer",
+								"63fc80b5bc1d91771d57d2f5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Close ticket",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImRlbW9uQHRlc3QuY29tIiwiaWQiOiI2M2ZjNjE2ZmJjMWQ5MTc3MWQ1N2NlMGYiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNjc3NDk1MDE0LCJleHAiOjE2Nzc1MzQ2MTR9.URknz9XvI0cfQa0ZZhytgkLfkEdyx-8L3qt9DJMlc8Q",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ticketID\":\"63fc8075bc1d91771d57d2dc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlLocal}}api/ticket/close-ticket",
+							"host": [
+								"{{baseUrlLocal}}api"
+							],
+							"path": [
+								"ticket",
+								"close-ticket"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Withdrawal",
+			"item": [
+				{
+					"name": "create withdrawal req",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Rfc2VsbGVyXzFAZXhhbXBsZS5jb20iLCJpZCI6IjYzZTI0Y2Y1MzczMDU0Y2JjN2Q3Zjc3YyIsInJvbGUiOiJST0xFX1NFTExFUiIsImlhdCI6MTY3NTg0MjM4MCwiZXhwIjoxNjc1ODgxOTgwfQ.iRHH7MwN7KppT0Z70pXYN-PoRWZ8rXTLUIEL03zPObY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"150\",\r\n    \"paymentAddress\":\"31tK37QKDsccEFXpbxeTQ617r91PFKbhsa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/withdraw",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all withdraw req",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://165.232.185.229:5000/api/withdraw",
+							"protocol": "http",
+							"host": [
+								"165",
+								"232",
+								"185",
+								"229"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"withdraw"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve withdrawal status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"withdrawId\":\"63e34b3d81490bc7bee51359\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/withdraw/approve-withdraw-status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"withdraw",
+								"approve-withdraw-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decline withdraw request",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"withdrawId\":\"63e341e4059e3ea95fdc3c9c\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/withdraw/decline-withdraw-status",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"withdraw",
+								"decline-withdraw-status"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user withdrawals",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3Rfc2VsbGVyXzFAZXhhbXBsZS5jb20iLCJpZCI6IjYzZTI0Y2Y1MzczMDU0Y2JjN2Q3Zjc3YyIsInJvbGUiOiJST0xFX1NFTExFUiIsImlhdCI6MTY3NTg0MjM4MCwiZXhwIjoxNjc1ODgxOTgwfQ.iRHH7MwN7KppT0Z70pXYN-PoRWZ8rXTLUIEL03zPObY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/withdraw/withdrawals",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"withdraw",
+								"withdrawals"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Check card validation",
+			"item": [
+				{
+					"name": "Check card validation",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://93.188.166.198:8080/token?token=bobby+api?4425075026040288|02/24|011",
+							"protocol": "http",
+							"host": [
+								"93",
+								"188",
+								"166",
+								"198"
+							],
+							"port": "8080",
+							"path": [
+								"token"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "bobby+api?4425075026040288|02/24|011"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CardCheck(updated)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://5.161.62.96:5000/ccbase/NDE0NzA5OTg4NTY4NDQxM3wwN3wyNnwxNjc=",
+							"protocol": "http",
+							"host": [
+								"5",
+								"161",
+								"62",
+								"96"
+							],
+							"port": "5000",
+							"path": [
+								"ccbase",
+								"NDE0NzA5OTg4NTY4NDQxM3wwN3wyNnwxNjc="
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://165.232.185.229:5000/"
+		},
+		{
+			"key": "baseUrlLocal",
+			"value": "http://localhost:5000/"
+		}
+	]
+}
